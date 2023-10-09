@@ -45,13 +45,12 @@ try {
           }
           if (temp.coordinates) {
               // entries with coordinates are created in the database here as not to include the array of zeros
-              const entry = Listing.create( { code: temp.code, name: temp.name,
-                  latitude: tempArr[0], longitude: tempArr[1], address: temp.address});
+              Listing.create( { code: temp.code, name: temp.name, latitude: tempArr[0], 
+                               longitude: tempArr[1], address: temp.address});
           }
           else {
               // entries without the coordinates listed are created in the database here
-              const entry = Listing.create( { code: temp.code, name: temp.name,
-                  address: temp.address});
+              Listing.create( { code: temp.code, name: temp.name, address: temp.address});
               // some entries include no address, but the ListingModel allows that field to be null
           }
       }
