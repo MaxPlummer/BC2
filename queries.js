@@ -52,7 +52,7 @@ async function removeCable() {
         // print the entry's code and name
         console.log("Deleted listing:", JSON.stringify(listing, null, 2));
         // destroy() removes the entry with the specified parameters
-        const removed = await Listing.destroy( {where: { code: 'CABL', name: 'Course viewed only on cable TV' } });
+        await Listing.destroy( {where: { code: 'CABL', name: 'Course viewed only on cable TV' } });
     }
 }
 
@@ -78,7 +78,7 @@ Then log the updated listing in the database and use console.log to inspect it. 
 async function updatePhelpsLab() {
     console.log('UpdatingPhelpsLab.');
     // update() revises the entry's specified attribute(s)
-    const listing = await Listing.update({ address: '1953 Museum Rd, Gainesville, FL 32603'},
+    await Listing.update({ address: '1953 Museum Rd, Gainesville, FL 32603'},
         { where: { code: 'PHL', name: 'Phelps Laboratory' } });
     const newListing = await Listing.findOne( {where: { code: 'PHL', name: 'Phelps Laboratory' } });
     if (newListing === null) {
