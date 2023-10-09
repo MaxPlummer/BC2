@@ -34,7 +34,7 @@ try {
         const listingData = JSON.parse(data);
 
         //Use Sequelize create a new row in our database for each entry in our listings.json based on the ListingModel
-      for (var i = 0; i < listingData.entries.length; i++) {
+      for (let i = 0; i < listingData.entries.length; i++) {
           // iterates over the entire listings.json file and inspects each entry
           const temp = listingData.entries.at(i);
           // the coordinates are added to a temporary array as floats if they are present in the entry
